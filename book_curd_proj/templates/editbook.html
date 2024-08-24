@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Book Project</h1>
+    <a href="/">Home</a><br>
+    <a href="/add">Add Book</a>
+    <a href="/list">Books</a>
+
+    <h1>Update Book</h1>
+    <form action="/edit/{{ book.id }}" method="POST">
+        {% csrf_token %} 
+        <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="title" value="{{ book.title}}"></td>
+            </tr>
+
+            <tr>
+                <td>Author</td>
+                <td><input type="text" name="author" value="{{ book.author }}"><td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="text" name="price" value="{{ book.price }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Update"></td>
+            </tr>
+        </table>
+        
+    </form>
+</body>
+</html>
